@@ -1,0 +1,243 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  top: 170px;
+}
+
+#othello {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.othelloSquare {
+  border: 4px solid black;
+  height: 44px;
+  width: 44px;
+  background-color: beige;
+}
+
+.othelloBoard {
+  height: 600px;
+  width: 600px;
+  position: relative;
+  border-collapse: collapse;
+  border: 4px solid black;
+  margin: auto;
+  z-index: 100;
+}
+
+#gameTextContener {
+  display: flex;
+  flex-direction: column;
+  top: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+}
+
+#resetOthelloButton {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 600;
+  width: 190px;
+  height: 70px;
+  border-radius: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: 1px solid #000;
+  margin-top: 800px;
+}
+
+#startOthelloButton {
+  position: relative;
+  cursor: pointer;
+  margin: auto;
+  z-index: 6000;
+  width: 250px;
+  height: 100px;
+  border-radius: 10px;
+  font-size: 50px;
+  text-transform: uppercase;
+  border: 1px solid #000;
+}
+
+.stopGameTexts {
+  display: none;
+}
+
+.startGameTexts {
+  position: relative;
+  margin: 0;
+  font-weight: bolder;
+  font-size: 200px;
+  color: orange;
+  text-align: center;
+  z-index: 500;
+  animation: zoomTextGame 4s 1 normal linear;
+}
+
+.startGameTextLets {
+  opacity: 0;
+  animation-delay: 0s;
+}
+
+.startGameTextStart {
+  opacity: 0;
+  animation-delay: 0.5s;
+}
+
+@keyframes zoomTextGame {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -200px, 0);
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -200px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  10% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
+  40% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
+
+  90% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -50px, 0);
+    transform: scale3d(20, 20, 20) translate3d(0, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
+}
+
+.gameCoin {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+/* GAME SCORRING */
+.exchangeRateTable {
+  visibility: hidden;
+  width: 300px;
+  padding: 10px 10px 10px 20px;
+  background-color: white;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  z-index: 20000;
+  text-align: center;
+}
+
+.exchangeRateTableShow {
+  visibility: visible;
+}
+
+.exchangeRateTable p {
+  display: inline;
+}
+
+.pointsOfPlayerOne,
+.pointsOfPlayerTwo {
+  visibility: hidden;
+  position: absolute;
+  width: 180px;
+  padding: 20px;
+  height: 50px;
+  background-color: beige;
+  right: 100px;
+  border-radius: 10px;
+  font-size: 20px;
+  z-index: 70;
+}
+
+#player1,
+#player2 {
+  display: block;
+  width: 110px;
+  overflow: hidden;
+}
+
+.pointsOfPlayerOne {
+  margin: 2% 47% 98% 53%;
+}
+
+.pointsOfPlayerTwo {
+  margin: 2% 30% 98% 70%;
+}
+
+.playerIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.animateAreaScore {
+  -webkit-animation: scoreEffect 1s linear infinite alternate; /* Chrome, Safari, Opera */
+  animation: scoreEffect 1s linear infinite alternate;
+}
+
+@keyframes scoreEffect {
+  0% {
+    border: 5px solid yellow;
+  }
+  50% {
+    border: 5px solid black;
+  }
+  100% {
+    border: 5px solid yellow;
+  }
+}
+
+/* BACKGROUND ANIMATIONS */
+.skyAnimation {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  animation: pogoda 20s infinite normal linear;
+}
+
+@keyframes pogoda {
+  0% {
+    background-color: #000033;
+  }
+  50% {
+    background-color: #0066ff;
+  }
+  100% {
+    background-color: #000033;
+  }
+}
